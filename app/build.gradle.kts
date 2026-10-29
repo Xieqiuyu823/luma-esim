@@ -1,0 +1,136 @@
+import com.android.build.gradle.internal.api.ApkVariantOutputImpl
+import im.angry.openeuicc.build.MagiskModuleDirTask
+import im.angry.openeuicc.build.MySigningPlugin
+import im.angry.openeuicc.build.MyVersioningPlugin
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+}
+
+apply {
+    plugin<MyVersioningPlugin>()
+    plugin<MySigningPlugin>()
+}
+
+android {
+    namespace = "im.angry.openeuicc"
+    compileSdk = 37
+
+    defaultConfig {
+        applicationId = "io.luma.euicc"
+        versionCode = 4
+        versionName = "0.1.3"
+        minSdk = 31
+        targetSdk = 37
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        defaultConfig {
+            versionNameSuffix = "-priv"
+        }
+        release {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+
+    testOptions {
+        unitTests {
+            // Robolectric needs real resources (task titles, dialog themes)
+            isIncludeAndroidResources = true
+        }
+    }
+
+    sourceSets {
+        // Reuse app-common's Robolectric mocks (EuiccChannel / EuiccChannelManager / test application)
+        getByName("test").java.srcDir("../app-common/src/test/java/im/angry/openeuicc/testutil")
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_11
+    }
+}
+
+dependencies {
+    compileOnly(project(":libs:hidden-apis-stub"))
+    implementation(project(":libs:hidden-apis-shim"))
+    implementation(project(":libs:lpac-jni"))
+    implementation(project(":app-common"))
+    // This is a massiave hack. We need testImplementation because the test classes
+    // need to be loadable against only public android.jar. However, once Robolectic
+    // starts running tests, the real classes from android-all.jar take precedence.
+    // FIXME: Probably make it so that this is not utterly fragile...
+    testImplementation(project(":libs:hidden-apis-stub"))
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.robolectric:robolectric:4.17-beta-4")
+    androidTestImplementation("androidx.test.ext:junit:1.3.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+}
+
+val modulePropsTemplate = mutableMapOf(
+    "id" to android.defaultConfig.applicationId!!,
+    "name" to "Luma eSIM System",
+    "version" to android.defaultConfig.versionName!!,
+    "versionCode" to "${android.defaultConfig.versionCode}",
+    "author" to "Luma eSIM and OpenEUICC contributors",
+    "description" to "Luma eSIM: a redesigned OpenEUICC interface for system-level eSIM management."
+)
+
+val moduleCustomizeScript = project.file("magisk/customize.sh").readText()
+    .replace("{APK_NAME}", "LumaEUICC")
+    .replace("{PKG_NAME}", android.defaultConfig.applicationId!!)
+
+val moduleUninstallScript = project.file("magisk/uninstall.sh").readText()
+    .replace("{PKG_NAME}", android.defaultConfig.applicationId!!)
+
+tasks.register<MagiskModuleDirTask>("assembleDebugMagiskModuleDir") {
+    variant = "debug"
+    appName = "LumaEUICC"
+    permsFile = project.rootProject.file("privapp_whitelist_io.luma.euicc.xml")
+    moduleInstaller = project.file("magisk/module_installer.sh")
+    moduleCustomizeScriptText = moduleCustomizeScript
+    moduleUninstallScriptText = moduleUninstallScript
+    moduleProp = modulePropsTemplate.let {
+        it["description"] = "(debug build) ${it["description"]}"
+        it["versionCode"] = (android.applicationVariants
+            .find { v -> v.name == "debug" }!!
+            .outputs
+            .first() as ApkVariantOutputImpl)
+            .versionCodeOverride.toString()
+        it
+    }
+    dependsOn("assembleDebug")
+}
+
+tasks.register<Zip>("assembleDebugMagiskModule") {
+    dependsOn("assembleDebugMagiskModuleDir")
+    from((tasks.getByName("assembleDebugMagiskModuleDir") as MagiskModuleDirTask).outputDir)
+    archiveFileName = "magisk-debug.zip"
+    destinationDirectory = project.layout.buildDirectory.dir("magisk")
+    entryCompression = ZipEntryCompression.STORED
+}
+
+tasks.register<MagiskModuleDirTask>("assembleReleaseMagiskModuleDir") {
+    variant = "release"
+    appName = "LumaEUICC"
+    permsFile = project.rootProject.file("privapp_whitelist_io.luma.euicc.xml")
+    moduleInstaller = project.file("magisk/module_installer.sh")
+    moduleCustomizeScriptText = moduleCustomizeScript
+    moduleUninstallScriptText = moduleUninstallScript
+    moduleProp = modulePropsTemplate
+    dependsOn("assembleRelease")
+}
+
+tasks.register<Zip>("assembleReleaseMagiskModule") {
+    dependsOn("assembleReleaseMagiskModuleDir")
+    from((tasks.getByName("assembleReleaseMagiskModuleDir") as MagiskModuleDirTask).outputDir)
+    archiveFileName = "magisk-release.zip"
+    destinationDirectory = project.layout.buildDirectory.dir("magisk")
+    entryCompression = ZipEntryCompression.STORED
+}

@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/reload" android:icon="@drawable/ic_refresh_black" android:title="@string/profile_reload_slots" app:showAsAction="ifRoom"/>
+    <item android:id="@+id/settings" android:icon="@drawable/ic_luma_settings" android:title="@string/pref_settings" app:showAsAction="ifRoom"/>
+    <item android:id="@+id/luma_devices" android:title="@string/luma_search_devices"/>
+    <item android:id="@+id/luma_appearance" android:title="@string/luma_appearance"/>
+    <item android:id="@+id/luma_preview" android:title="@string/luma_preview"/>
+    <item android:id="@+id/luma_about" android:title="@string/luma_about"/>
+</menu>

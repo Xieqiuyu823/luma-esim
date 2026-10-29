@@ -1,0 +1,5 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/luma_background">
+    <TextView android:id="@+id/download_method_select_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="24dp" android:text="@string/download_wizard_method_select" android:textAppearance="@style/Luma.Headline"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="24dp" android:layout_marginBottom="18dp" android:text="@string/luma_add_hint" android:textAppearance="@style/Luma.Body"/>
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/download_method_list" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:clipToPadding="false" android:paddingBottom="24dp"/>
+</LinearLayout>

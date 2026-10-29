@@ -1,0 +1,3 @@
+[submodule "libs/lpac-jni/src/main/jni/cJSON"]
+	path = libs/lpac-jni/src/main/jni/cjson/cjson
+	url = https://github.com/DaveGamble/cJSON

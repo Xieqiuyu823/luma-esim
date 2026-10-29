@@ -1,0 +1,14 @@
+<resources>
+<color name="luma_background">#F7F9FC</color>
+<color name="luma_surface">#FFFFFF</color>
+<color name="luma_primary">#3D6CCB</color>
+<color name="luma_on_primary">#FFFFFF</color>
+<color name="luma_primary_container">#E6EDFC</color>
+<color name="luma_on_container">#213960</color>
+<color name="luma_text">#1C273A</color>
+<color name="luma_muted">#6A768A</color>
+<color name="luma_outline">#DFE5EF</color>
+<color name="luma_hero">#EEF3FC</color>
+<color name="luma_badge">#E7EFFD</color>
+<color name="luma_disabled">#F0F2F6</color>
+</resources>

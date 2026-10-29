@@ -1,0 +1,9 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center_vertical" android:padding="28dp" android:paddingBottom="40dp">
+    <ImageView android:layout_width="76dp" android:layout_height="76dp" android:padding="20dp" android:background="@drawable/luma_icon_background" android:src="@drawable/ic_luma_leaf" android:importantForAccessibility="no"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28dp" android:text="@string/luma_not_found_title" android:textAppearance="@style/Luma.Headline"/>
+    <TextView android:id="@+id/no_euicc_placeholder" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/luma_not_found_message" android:textAppearance="@style/Luma.Body"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/luma_privileged_hint" android:textAppearance="@style/Luma.Body"/>
+    <com.google.android.material.button.MaterialButton android:id="@+id/luma_retry" style="@style/Luma.Button" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28dp" android:text="@string/luma_refresh" app:icon="@drawable/ic_refresh_black"/>
+
+    <com.google.android.material.button.MaterialButton android:id="@+id/luma_preview_button" style="@style/Widget.Material3.Button.TextButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/luma_preview"/>
+</LinearLayout></ScrollView>

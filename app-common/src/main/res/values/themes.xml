@@ -1,0 +1,53 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.OpenEUICC" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightNavigationBar">?attr/isLightTheme</item>
+        <item name="toolbarStyle">@style/ToolbarTheme</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:colorBackground">@color/luma_background</item>
+        <item name="dialogCornerRadius">28dp</item>
+        <item name="colorPrimary">@color/luma_primary</item>
+        <item name="colorOnPrimary">@color/luma_on_primary</item>
+        <item name="colorSecondary">@color/luma_primary</item>
+        <item name="colorSecondaryContainer">@color/luma_primary_container</item>
+        <item name="colorOnSecondaryContainer">@color/luma_on_container</item>
+        <item name="colorPrimaryContainer">@color/luma_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/luma_on_container</item>
+        <item name="colorSurface">@color/luma_surface</item>
+        <item name="colorSurfaceVariant">@color/luma_background</item>
+        <item name="colorOnSurface">@color/luma_text</item>
+        <item name="colorOnSurfaceVariant">@color/luma_muted</item>
+        <item name="colorOutline">@color/luma_outline</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="Widget.Material3.Toolbar">
+        <item name="android:background">?attr/colorSurfaceVariant</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.Material3.DayNight.Dialog.Alert">
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="dialogCornerRadius">28dp</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/colorSecondary</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/colorSecondary</item>
+    </style>
+
+    <style name="Theme.AppCompat.Translucent" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+</resources>

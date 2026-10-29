@@ -1,0 +1,8 @@
+<resources>
+    <style name="Luma.Headline" parent="TextAppearance.Material3.HeadlineLarge"><item name="android:textColor">@color/luma_text</item><item name="android:fontFamily">sans-serif-medium</item><item name="android:textSize">32sp</item><item name="android:lineSpacingExtra">2dp</item></style>
+    <style name="Luma.Title" parent="TextAppearance.Material3.TitleMedium"><item name="android:textColor">@color/luma_text</item><item name="android:fontFamily">sans-serif-medium</item></style>
+    <style name="Luma.Body" parent="TextAppearance.Material3.BodyMedium"><item name="android:textColor">@color/luma_muted</item><item name="android:lineSpacingExtra">3dp</item></style>
+    <style name="Luma.Label" parent="TextAppearance.Material3.LabelSmall"><item name="android:textColor">@color/luma_primary</item><item name="android:letterSpacing">0.12</item></style>
+    <style name="Luma.Button" parent="Widget.Material3.Button"><item name="cornerRadius">16dp</item><item name="android:minHeight">52dp</item><item name="android:textAllCaps">false</item></style>
+    <style name="Luma.OutlineButton" parent="Widget.Material3.Button.OutlinedButton"><item name="cornerRadius">16dp</item><item name="android:minHeight">48dp</item><item name="strokeColor">@color/luma_outline</item><item name="android:textAllCaps">false</item></style>
+</resources>

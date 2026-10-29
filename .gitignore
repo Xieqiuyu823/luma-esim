@@ -1,0 +1,16 @@
+/.gradle
+/captures
+/build
+
+# Configuration files
+
+/keystore.properties
+/local.properties
+
+# macOS
+
+.DS_Store
+
+# Kotlin compiler and local native build caches
+.kotlin/
+.cxx/
