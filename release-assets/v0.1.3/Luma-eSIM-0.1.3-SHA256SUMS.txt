@@ -1,0 +1,9 @@
+1356c9a283230d7a529ca15f3d1606f2e44e3b45969d8f9ed5dc657a04ec5db2  Luma-eSIM-0.1.3-debug.apk
+5b071d0effdf5a518b93d695895beee408347a0a9b55246596a3bc4c1b02d953  Luma-eSIM-0.1.3.apk
+6163fa0ec33e8408ed2a4c4070fea6148bdf8f098dad0739128d9384785ef519  Luma-eSIM-System-0.1.3-debug.apk
+c85569513c03379066d41df7c358c8b14f7b11e4271792bd0683dc0731c6e96b  Luma-eSIM-System-0.1.3.apk
+dcc43b1df571e74a074a9c77627bf2c9fa148663b66265e598fa9159e067a645  Luma-eSIM-System-0.1.3-magisk-debug.zip
+dcc43b1df571e74a074a9c77627bf2c9fa148663b66265e598fa9159e067a645  Luma-eSIM-System-0.1.3-magisk-debug.bin
+bc12aecfb1c8e1e2fbafee46e83c4c20a1603ab43c71c26806b62d5e0171aab0  Luma-eSIM-System-0.1.3-magisk.zip
+bc12aecfb1c8e1e2fbafee46e83c4c20a1603ab43c71c26806b62d5e0171aab0  Luma-eSIM-System-0.1.3-magisk.bin
+a69eea26d56aae0a6c89182ce0af4ee90a133131b9d9a117517ecda81d84370e  Luma-eSIM-0.1.3-source.zip
