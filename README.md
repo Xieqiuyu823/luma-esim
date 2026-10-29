@@ -34,6 +34,8 @@
 
 ## 安装与体验
 
+当前安装包及源码包可从 [GitHub Releases](https://github.com/Xieqiuyu823/luma-esim/releases/latest) 获取。日常在已 Root 设备使用请下载 [System 版 Magisk ZIP](https://github.com/Xieqiuyu823/luma-esim/releases/download/v0.1.3/Luma-eSIM-System-0.1.3-magisk.zip)；如果下载器无法处理 ZIP，可用 [同内容 BIN 副本](https://github.com/Xieqiuyu823/luma-esim/releases/download/v0.1.3/Luma-eSIM-System-0.1.3-magisk.bin)，下载后改回 `.zip` 再在 Magisk 中安装。
+
 1. 普通使用安装 `Luma-eSIM-0.1.3.apk`。
 2. 无可访问卡片时，点击「查看界面预览」；有卡片时，也可以在菜单或设置中打开预览。
 3. 连接兼容卡片或 USB CCID 读卡器；授予读卡器访问权限后刷新。
